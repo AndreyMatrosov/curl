@@ -13,4 +13,7 @@ node('docker') {
                    installation: 'CMake',
                    sourceDir: 'https://github.com/AndreyMatrosov/curl')
     }
+    stage('Deploy') {
+        sh 'echo "ok"'
+    }
 }
