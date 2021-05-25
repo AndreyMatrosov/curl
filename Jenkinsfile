@@ -18,7 +18,13 @@ node ('master') {
                    installation: 'CMake',
                    sourceDir: 'CMakeLists.txt')
     }
-    stage('Deploy') {
-        sh 'echo "ok"'
-    }
+  /*try {
+        stage('Test') {
+            sh '' 
+        }
+    } finally {
+        archiveArtifacts artifacts: , fingerprint: true
+         
+        }
+    }*/
 }
