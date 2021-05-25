@@ -1,6 +1,5 @@
 node ('master') {
     stage('Checkout') {
-        
            cleanWs()
            checkout([$class: 'GitSCM',
                    branches: [[name: '*/master']],
