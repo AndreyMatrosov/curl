@@ -11,7 +11,7 @@ node {
         cmakeBuild(buildDir: 'build',
                    buildType: 'Release',
                    installation: 'CMake',
-                   sourceDir: 'https://github.com/AndreyMatrosov/curl')
+                   sourceDir: 'CMakeLists.txt')
     }
     stage('Deploy') {
         sh 'echo "ok"'
