@@ -1,4 +1,4 @@
-node('docker') {
+node {
     stage('Checkout') {
         cleanWS()
         checkout([$class: 'GitSCM',
