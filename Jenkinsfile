@@ -8,12 +8,15 @@ node ('master') {
                    userRemoteConfigs: [[credentialsId: 'jenkins_ssh',
                    url: 'https://github.com/AndreyMatrosov/curl']]])
     }
-    stage('Build') {
-        cmakeBuild(buildDir: 'build',
-                   generator: 'Unix Makefiles',
+    withEnv(['CMAKE_C_COMPILER=make',
+             'CMAKE_MAKE_PROGRAM=/usr/bin/ninja']) {
+        stage('Build') {
+            cmakeBuild(buildDir: 'build',
+                   generator: 'ninja',
                    buildType: 'Release',
                    installation: 'CMake',
                    sourceDir: 'CMakeLists.txt')
+        }
     }
     stage('Test') {
         ctest installation: 'CMake', workingDir: 'tests/unit'
