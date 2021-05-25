@@ -1,8 +1,10 @@
 node('docker') {
-    checkout scm
-    stage('Build') {
-        docker.image('python:3.5.1').inside {
-            sh 'python --version'
-        }
+    stage('Checkout') {
+        cleanWS()
+        checkout([$class: 'GitSCM',
+                  branches: [[name: '*/master']],
+                  extensions: [],
+                  userRemoteConfigs: [[credentialsId: 'jenkins_ssh',
+                  url: 'https://github.com/AndreyMatrosov/curl']]])       
     }
 }
