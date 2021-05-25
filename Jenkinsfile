@@ -13,7 +13,7 @@ node ('master') {
             cmakeBuild(buildDir: 'build',
                    generator: 'Ninja',
                    buildType: 'Release',
-                   installation: 'CMake',
+                   installation: 'InSearchPath',
                    sourceDir: 'CMakeLists.txt')
         }
     }
