@@ -11,7 +11,7 @@ node ('master') {
     withEnv(['CMAKE_C_COMPILER=ninja',
              'CMAKE_MAKE_PROGRAM=/usr/bin/ninja']) {
         stage('Build') {
-            cmakeBuild(buildDir: 'build',
+            cmakeBuild(buildDir: 'build_1',
                    generator: 'Ninja',
                    buildType: 'Release',
                    installation: 'CMake',
