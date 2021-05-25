@@ -9,6 +9,7 @@ node {
     }
     stage('Build') {
         cmakeBuild(buildDir: 'build',
+                   generator: 'Unix Makefiles',
                    buildType: 'Release',
                    installation: 'CMake',
                    sourceDir: 'CMakeLists.txt')
