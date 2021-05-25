@@ -1,4 +1,4 @@
-node {
+node ('master') {
     stage('Checkout') {
         if  (env.BRANCH_NAME == ' master ' ) {
             cleanWs()
