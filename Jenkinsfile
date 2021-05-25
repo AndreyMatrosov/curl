@@ -1,15 +1,12 @@
 node ('master') {
     stage('Checkout') {
-        if  (env.BRANCH_NAME == ' master ' ) {
-            cleanWs()
-            checkout([$class: 'GitSCM',
-                    branches: [[name: '*/master']],
-                    extensions: [],
-                    userRemoteConfigs: [[credentialsId: 'jenkins_ssh',
-                    url: 'https://github.com/AndreyMatrosov/curl']]])
-        } else {
-            echo 'not master branch'   
-        }
+        
+           cleanWs()
+           checkout([$class: 'GitSCM',
+                   branches: [[name: '*/master']],
+                   extensions: [],
+                   userRemoteConfigs: [[credentialsId: 'jenkins_ssh',
+                   url: 'https://github.com/AndreyMatrosov/curl']]])
     }
     stage('Build') {
          cmakeBuild(buildDir: 'build',
